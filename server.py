@@ -1,14 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf8 -*-
 
-__author__ = "WireLoad Inc"
-__copyright__ = "Copyright 2012-2016, WireLoad Inc"
-__license__ = "Dual License: GPLv2 and Commercial License"
-
-from datetime import datetime, timedelta
+from datetime import timedelta
 from functools import wraps
 from hurry.filesize import size
-from os import path, makedirs, statvfs, mkdir, getenv
+from os import path, makedirs, statvfs, mkdir
 from sh import git
 import sh
 from subprocess import check_output
@@ -35,6 +31,7 @@ from dateutil import parser as date_parser
 
 from settings import settings, DEFAULTS, CONFIGURABLE_SETTINGS
 from werkzeug.wrappers import Request
+
 ################################
 # Utilities
 ################################
@@ -87,7 +84,7 @@ def template(template_name, **context):
     but also injects some global context."""
 
     # Add global contexts
-    context['up_to_date'] = is_up_to_date()
+    # context['screen_title'] = settings['screen_title']
     context['default_duration'] = settings['default_duration']
     context['use_24_hour_clock'] = settings['use_24_hour_clock']
     context['template_settings'] = {
@@ -337,7 +334,7 @@ def splash_page():
         ip_lookup = False
         url = "Unable to look up your installation's IP address."
 
-    return template('splash_page', ip_lookup=ip_lookup, url=url)
+    return template('splash_page', screen_ip=my_ip, ip_lookup=ip_lookup, url=url)
 
 
 @error(403)

@@ -14,9 +14,10 @@ DEFAULTS = {
         'database': CONFIG_DIR + 'screenly.db',
         'listen': '0.0.0.0:8080',
         'assetdir': 'screenly_assets',
-        'use_24_hour_clock': False
+        'use_24_hour_clock': True
     },
     'viewer': {
+        'screen': 1,
         'show_splash': True,
         'audio_output': 'hdmi',
         'shuffle_playlist': False,

@@ -186,7 +186,7 @@
             .pull-left.progress.progress-striped.active(style="display:none")
               .bar
             %input.btn.cancel(type="button", value="Cancel")
-            %input.btn.btn-primary(type="submit", value="Save")
+            %input.btn.btn-warning(type="submit", value="Save")
 
     %script(type="text/template", id="subscribe-form-template")
       %div#subscribe-popover.popover.top(style="display:block")
@@ -218,7 +218,7 @@
       .navbar-inner
         .container
           %a.brand(href="/")
-            %img(src='static/img/screenly_ose_logo.png')
+            %img(src='static/img/nocman.png')
 
           %ul.nav.pull-right
             - if not up_to_date:
@@ -241,7 +241,7 @@
         .span12
           %h1.page-header
             .pull-right
-              %a#add-asset-button.btn.btn-primary(href="#")
+              %a#add-asset-button.btn.btn-warning(href="#")
                 %i.icon-plus.icon-white
                 Add Asset
             Schedule Overview
@@ -275,21 +275,3 @@
               %tbody#inactive-assets
 
       %hr
-      .container
-        .row
-            .span6
-              %span Want to get more out of Screenly?
-                %a.brand(href="http://www.screenlyapp.com/?utm_source=Screenly-OSE&utm_medium=root-page&utm_campaign=OSE", target="_blank")
-                  %strong Try Screenly Pro.
-            .span6
-              %div#subsribe-form-container
-              %span
-                %a
-                  %strong#show-email-popover Get the latest Screenly news directly in your mailbox.
-
-    #footer
-      .container
-        .copy
-          &copy; <strong>2012-2016.</strong> WireLoad, Inc.
-        %a(id="wireload-logo", href="http://wireload.net/", target="_blank")
-          %img(src="/static/img/wireload-logo.png", alt="WireLoad")
