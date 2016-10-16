@@ -18,12 +18,15 @@
 
       .row
         .span12.text-center
-          - if ip_lookup:
-            %p.lead To manage the content on this screen, use the following IP
+          %h3 Screen Title
+          .well.lead
+            ${screen_title}
 
-            .well.lead
+          %h3 Screen IP Details
+          .well.lead
+            - if ip_lookup:
               ${screen_ip}
-          - else:
-            %p.lead Unable to resolve management IP.
+            - else:
+              Unable to resolve management IP.
 
       %hr

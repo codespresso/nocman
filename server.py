@@ -84,7 +84,7 @@ def template(template_name, **context):
     but also injects some global context."""
 
     # Add global contexts
-    # context['screen_title'] = settings['screen_title']
+    context['up_to_date'] = is_up_to_date()
     context['default_duration'] = settings['default_duration']
     context['use_24_hour_clock'] = settings['use_24_hour_clock']
     context['template_settings'] = {
@@ -320,6 +320,7 @@ def system_info():
 
 @route('/splash_page')
 def splash_page():
+    screen_title = settings.get('screen_title', 'Not Specified')
     my_ip = get_node_ip()
     if my_ip:
         ip_lookup = True
@@ -334,7 +335,11 @@ def splash_page():
         ip_lookup = False
         url = "Unable to look up your installation's IP address."
 
-    return template('splash_page', screen_ip=my_ip, ip_lookup=ip_lookup, url=url)
+    return template('splash_page',
+                    screen_title=screen_title,
+                    screen_ip=my_ip,
+                    ip_lookup=ip_lookup,
+                    url=url)
 
 
 @error(403)
